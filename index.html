@@ -854,15 +854,15 @@
             resizeMatrixCanvas();
             window.addEventListener('resize', resizeMatrixCanvas);
 
-            const chars = '01';
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
             function draw() {
                 matrixCtx.clearRect(0, 0, matrixCanvas.width, matrixCanvas.height);
-                matrixCtx.fillStyle = 'rgba(0, 0, 0, 0.02)';
+                matrixCtx.fillStyle = 'rgba(0, 0, 0, 0.09)';
                 matrixCtx.fillRect(0, 0, window.innerWidth, window.innerHeight);
 
-                matrixCtx.fillStyle = 'rgba(0,255,0,0.08)';
-                matrixCtx.font = '15px monospace';
+                matrixCtx.fillStyle = 'rgba(0,255,0,0.09)';
+                matrixCtx.font = '20px monospace';
 
                 for (let i = 0; i < matrixDrops.length; i++) {
                     const text = chars[Math.floor(Math.random() * chars.length)];
