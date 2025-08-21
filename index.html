@@ -216,6 +216,12 @@
             box-shadow: 0 4px 12px rgba(113, 128, 150, 0.3);
             transform: translateY(-2px);
         }
+        .contact-item .icon {
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
 
         .section-title {
             font-family: 'VT323', monospace;
@@ -433,10 +439,34 @@
             transform: scale(1.05);
         }
 
+        /* Projects: two-column layout */
+        #projects {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+            align-items: stretch;
+        }
+
+        #projects .section-title {
+            grid-column: 1 / -1;
+        }
+
         .certifications {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 15px;
+        }
+
+        /* Remove default underline/color for certification links */
+        .certifications a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .certifications a:visited,
+        .certifications a:hover,
+        .certifications a:active {
+            text-decoration: none;
+            color: inherit;
         }
 
         .cert-item {
@@ -541,6 +571,11 @@
                 white-space: normal; 
                 width: auto; 
                 animation: none; 
+            }
+            
+            /* Stack project cards on small screens */
+            #projects {
+                grid-template-columns: 1fr;
             }
         }
         .about-text,
@@ -651,10 +686,10 @@
                     
                     <!-- Contact Information moved to About section -->
                     <div class="contact-info">
-                        <a href="mailto:maniritish2422@gmail.com" class="contact-item" target="_blank">📧 maniritish2422@gmail.com</a>
-                        <a href="tel:+14259997076" class="contact-item">📞 (425) 999-7076</a>
-                        <a href="https://www.linkedin.com/in/sai-mani-ritish/" target="_blank" class="contact-item">💼 LinkedIn</a>
-                        <a href="https://github.com/SaiMani-Ritish" target="_blank" class="contact-item">💻 GitHub</a>
+                        <a href="mailto:maniritish2422@gmail.com" class="contact-item" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path fill="currentColor" d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>maniritish2422@gmail.com</a>
+                        <a href="tel:+14259997076" class="contact-item"><svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path fill="currentColor" d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V21a1 1 0 01-1 1C11.85 22 2 12.15 2 1a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.2 2.2z"/></svg>(425) 999-7076</a>
+                        <a href="https://www.linkedin.com/in/sai-mani-ritish/" target="_blank" class="contact-item"><svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path fill="currentColor" d="M22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.226.792 24 1.771 24h20.451C23.2 24 24 23.226 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003zM6.782 20.452H3.893V9h2.889v11.452zM5.337 7.433a1.804 1.804 0 110-3.608 1.804 1.804 0 010 3.608zM20.447 20.452H17.21v-5.569c0-1.328-.027-3.036-1.852-3.036-1.853 0-2.136 1.447-2.136 2.943v5.662H9.083V9h3.112v1.561h.045c.433-.82 1.494-1.685 3.073-1.685 3.29 0 3.897 2.165 3.897 4.981v6.595z"/></svg>LinkedIn</a>
+                        <a href="https://github.com/SaiMani-Ritish" target="_blank" class="contact-item"><svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path fill="currentColor" d="M12 .5a12 12 0 00-3.79 23.4c.6.11.82-.26.82-.58v-2.2c-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.34-1.77-1.34-1.77-1.09-.75.08-.74.08-.74 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.82 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.66-.31-5.46-1.33-5.46-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.54.12-3.21 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 016 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.67.24 2.91.12 3.21.77.84 1.24 1.91 1.24 3.22 0 4.61-2.8 5.61-5.47 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.82.58A12 12 0 0012 .5z"/></svg>GitHub</a>
                     </div>
                 </div>
             </section>
@@ -709,7 +744,7 @@
                 <div class="project-item">
                     <div class="item-title">ScheduLearn: AI-Powered Podcast Scheduling Assistant</div>
                     <div class="item-subtitle">May 2025</div>
-                    <div class="item-details">Developed an AI agent using Python to schedule Podcasts/YouTube items into Google Calendar using user preferences. Achieved 90% satisfaction by automating schedules for 1,000+ users.</div>
+                    <div class="item-details">Developed an AI agent using Python to schedule Podcasts/YouTube items into Google Calendar using user preferences.</div>
                     <div class="tech-stack">
                         <span class="tech-tag">Python</span>
                         <span class="tech-tag">Google Calendar API</span>
@@ -719,22 +754,6 @@
                     </div>
                     <a href="https://github.com/SaiMani-Ritish/ScheduLearn.git" target="_blank" class="project-link">View Project →</a>
                 </div>
-
-                <div class="project-item">
-                    <div class="item-title">Personal Finance Web Application</div>
-                    <div class="item-subtitle">January 2025 – April 2025</div>
-                    <div class="item-details">Built a finance app for 200+ users using MERN Stack, improving budgeting efficiency by 15%. Integrated Ollama and LLaMA LLM for AI-driven insights.</div>
-                    <div class="tech-stack">
-                        <span class="tech-tag">MongoDB</span>
-                        <span class="tech-tag">Express.js</span>
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">Ollama</span>
-                        <span class="tech-tag">LLaMA</span>
-                    </div>
-                    <a href="https://github.com/SaiMani-Ritish/Personal-Finance-Tracker.git" target="_blank" class="project-link">View Project →</a>
-                </div>
-
 
                 <div class="project-item">
                     <div class="item-title">Campus Blog Mobile Application</div>
@@ -760,6 +779,20 @@
                         <span class="tech-tag">Machine Learning</span>
                     </div>
                     <a href="https://github.com/SaiMani-Ritish/Predictive-Analytics-in-Sports.git" target="_blank" class="project-link">View Project →</a>
+                </div>
+
+                <div class="project-item">
+                    <div class="item-title">Personal Finance Web Application</div>
+                    <div class="item-subtitle">January 2025 – April 2025</div>
+                    <div class="item-details">Built a finance app for 200+ users using MERN Stack, improving budgeting efficiency by 15%. Integrated Ollama and LLaMA LLM for AI-driven insights.</div>
+                    <div class="tech-stack">
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Express.js</span>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">Gemma</span>
+                    </div>
+                    <a href="https://github.com/SaiMani-Ritish/Personal-Finance-Tracker.git" target="_blank" class="project-link">View Project →</a>
                 </div>
 
                 <div class="project-item">
@@ -804,7 +837,7 @@
                     <div class="item-details">Developed a Tic-Tac-Toe game integrated with AI logic to provide an unbeatable gameplay experience using the Minimax algorithm.</div>
                     <div class="tech-stack">
                         <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Tkinter</span>
+                        <span class="tech-tag">PyGame</span>
                         <span class="tech-tag">AI</span>
                         <span class="tech-tag">Minimax</span>
                     </div>
