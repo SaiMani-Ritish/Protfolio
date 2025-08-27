@@ -242,6 +242,40 @@
             border-radius: 8px;
             opacity: 0;
             animation: typewriterFadeIn 2s ease-in-out 0.5s forwards;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            align-items: start;
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .about-photo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .about-photo img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 3px solid #ffffff;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            object-fit: cover;
+        }
+
+        .about-photo .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+            align-items: center;
         }
 
         @keyframes typewriterFadeIn {
@@ -502,6 +536,34 @@
             transform: translateY(-5px);
         }
 
+        /* Papers Section Styles */
+        .papers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+        }
+
+        .paper-item {
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 4px solid #ffffff;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+
+        .paper-item.animate {
+            animation: slideInTypewriter 1s ease-out forwards;
+        }
+
+        .paper-item:hover {
+            background: rgba(255, 255, 255, 0.06);
+            transform: translateX(8px);
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+        }
+
         .footer {
             text-align: center;
             margin: 40px 0 20px 0;
@@ -576,6 +638,18 @@
             /* Stack project cards on small screens */
             #projects {
                 grid-template-columns: 1fr;
+            }
+            
+            /* Stack about section on small screens */
+            .about-section {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .about-photo .contact-info {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
             }
         }
         .about-text,
@@ -678,18 +752,22 @@
             <section id="about" class="section">
                 <div class="section-title">&gt; About </div>
                 <div class="about-section">
-                    <div class="about-text">Hello, I'm a Full-Stack Developer and AI Engineer pursuing my M.S. in Computer Science at City University of Seattle with a 4.0 GPA. I like solving problems and am always eager to explore.</div>
-                    <div class="about-text">With expertise in the MERN stack, cloud technologies, and machine learning, gained through building practical web applications and AI solutions.</div>
-                    <div class="about-text">My experience includes developing AI-powered scheduling assistants, leading teams to build scalable systems serving 10+ users,</div>
-                    <div class="about-text">and creating impactful solutions that enhance user experiences. I am committed to continuous learning and growth, currently enhancing my skills in AI/ML and cloud computing.</div>
-                    <div class="about-text">Let's connect and explore how we can collaborate to create innovative solutions!</div>
-                    
-                    <!-- Contact Information moved to About section -->
-                    <div class="contact-info">
-                        <a href="mailto:maniritish2422@gmail.com" class="contact-item" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path fill="currentColor" d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>maniritish2422@gmail.com</a>
-                        <a href="tel:+14259997076" class="contact-item"><svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path fill="currentColor" d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V21a1 1 0 01-1 1C11.85 22 2 12.15 2 1a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.2 2.2z"/></svg>(425) 999-7076</a>
-                        <a href="https://www.linkedin.com/in/sai-mani-ritish/" target="_blank" class="contact-item"><svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path fill="currentColor" d="M22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.226.792 24 1.771 24h20.451C23.2 24 24 23.226 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003zM6.782 20.452H3.893V9h2.889v11.452zM5.337 7.433a1.804 1.804 0 110-3.608 1.804 1.804 0 010 3.608zM20.447 20.452H17.21v-5.569c0-1.328-.027-3.036-1.852-3.036-1.853 0-2.136 1.447-2.136 2.943v5.662H9.083V9h3.112v1.561h.045c.433-.82 1.494-1.685 3.073-1.685 3.29 0 3.897 2.165 3.897 4.981v6.595z"/></svg>LinkedIn</a>
-                        <a href="https://github.com/SaiMani-Ritish" target="_blank" class="contact-item"><svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path fill="currentColor" d="M12 .5a12 12 0 00-3.79 23.4c.6.11.82-.26.82-.58v-2.2c-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.34-1.77-1.34-1.77-1.09-.75.08-.74.08-.74 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.82 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.66-.31-5.46-1.33-5.46-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.54.12-3.21 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 016 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.67.24 2.91.12 3.21.77.84 1.24 1.91 1.24 3.22 0 4.61-2.8 5.61-5.47 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.82.58A12 12 0 0012 .5z"/></svg>GitHub</a>
+                    <div class="about-content">
+                        <div class="about-text">Hello, I'm a Full-Stack Developer and AI Engineer pursuing my M.S. in Computer Science at City University of Seattle with a 4.0 GPA. I like solving problems and am always eager to explore.</div>
+                        <div class="about-text">With expertise in the MERN stack, cloud technologies, and machine learning, gained through building practical web applications and AI solutions.</div>
+                        <div class="about-text">My experience includes developing AI-powered scheduling assistants, leading teams to build scalable systems serving 10+ users,</div>
+                        <div class="about-text">and creating impactful solutions that enhance user experiences. I am committed to continuous learning and growth, currently enhancing my skills in AI/ML and cloud computing.</div>
+                        <div class="about-text">Let's connect and explore how we can collaborate to create innovative solutions!</div>
+                    </div>
+                    <div class="about-photo">
+                        <img src="Ritish.png" alt="Sai Mani Ritish" />
+                        <!-- Contact Information moved to bottom of photo -->
+                        <div class="contact-info">
+                            <a href="mailto:maniritish2422@gmail.com" class="contact-item" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path fill="currentColor" d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>maniritish2422@gmail.com</a>
+                            <a href="tel:+14259997076" class="contact-item"><svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path fill="currentColor" d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V21a1 1 0 01-1 1C11.85 22 2 12.15 2 1a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.2 2.2z"/></svg>(425) 999-7076</a>
+                            <a href="https://www.linkedin.com/in/sai-mani-ritish/" target="_blank" class="contact-item"><svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path fill="currentColor" d="M22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.226.792 24 1.771 24h20.451C23.2 24 24 23.226 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003zM6.782 20.452H3.893V9h2.889v11.452zM5.337 7.433a1.804 1.804 0 110-3.608 1.804 1.804 0 010 3.608zM20.447 20.452H17.21v-5.569c0-1.328-.027-3.036-1.852-3.036-1.853 0-2.136 1.447-2.136 2.943v5.662H9.083V9h3.112v1.561h.045c.433-.82 1.494-1.685 3.073-1.685 3.29 0 3.897 2.165 3.897 4.981v6.595z"/></svg>LinkedIn</a>
+                            <a href="https://github.com/SaiMani-Ritish" target="_blank" class="contact-item"><svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path fill="currentColor" d="M12 .5a12 12 0 00-3.79 23.4c.6.11.82-.26.82-.58v-2.2c-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.34-1.77-1.34-1.77-1.09-.75.08-.74.08-.74 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.82 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.66-.31-5.46-1.33-5.46-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.54.12-3.21 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 016 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.67.24 2.91.12 3.21.77.84 1.24 1.91 1.24 3.22 0 4.61-2.8 5.61-5.47 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.82.58A12 12 0 0012 .5z"/></svg>GitHub</a>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -716,25 +794,6 @@
                     <div class="item-subtitle">Indian Institute of Management and Commerce | Sep 2020 – Jun 2023</div>
                     <div class="item-details"><strong>CGPA:</strong> 7.8/10.0</div>
                     <div class="item-details"><strong>Coursework:</strong> C Programming, Data Structures and Algorithms, C++, Java, DBMS, HTML</div>
-                </div>
-            </section>
-
-            <!-- Experience Section -->
-            <section id="experience" class="section">
-                <div class="section-title">&gt; Experience</div>
-                <div class="experience-item">
-                    <div class="item-title">International Student Ambassador</div>
-                    <div class="item-subtitle">City University of Seattle | Apr 2025 – Present</div>
-                    <div class="item-details">• Collaborated with a 5-member team to develop an international students' website, increasing resource access by 30%</div>
-                    <div class="item-details">• Organized 15+ events achieving 95% satisfaction rate among diverse student populations</div>
-                    <div class="item-details">• Facilitated onboarding for 100+ international students annually, enhancing community integration by 20%</div>
-                </div>
-
-                <div class="experience-item">
-                    <div class="item-title">Intern</div>
-                    <div class="item-subtitle">VOICE-4 | May 2022 – Jun 2022</div>
-                    <div class="item-details">• Designed 10+ workshops and classes educating 50+ adolescent boys, boosting community engagement by 25%</div>
-                    <div class="item-details">• Configured AWS SNS and managed LMS, reducing communication latency by 40% for 200+ users</div>
                 </div>
             </section>
 
@@ -896,6 +955,26 @@
                     <a href="https://github.com/SaiMani-Ritish/React-Projects.git" target="_blank" class="project-link">View Project →</a>
                 </div>
             </section>
+
+             <!-- Experience Section -->
+             <section id="experience" class="section">
+                <div class="section-title">&gt; Experience</div>
+                <div class="experience-item">
+                    <div class="item-title">International Student Ambassador</div>
+                    <div class="item-subtitle">City University of Seattle | Apr 2025 – Present</div>
+                    <div class="item-details">• Collaborated with a 5-member team to develop an international students' website, increasing resource access by 30%</div>
+                    <div class="item-details">• Organized 15+ events achieving 95% satisfaction rate among diverse student populations</div>
+                    <div class="item-details">• Facilitated onboarding for 100+ international students annually, enhancing community integration by 20%</div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="item-title">Intern</div>
+                    <div class="item-subtitle">VOICE-4 | May 2022 – Jun 2022</div>
+                    <div class="item-details">• Designed 10+ workshops and classes educating 50+ adolescent boys, boosting community engagement by 25%</div>
+                    <div class="item-details">• Configured AWS SNS and managed LMS, reducing communication latency by 40% for 200+ users</div>
+                </div>
+            </section>
+
 
             <!-- Skills Section -->
             <section id="skills" class="section">
