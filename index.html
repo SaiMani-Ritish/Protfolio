@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sai Mani Ritish - Portfolio</title>
+    <link rel="icon" type="image/png" href="portrait.png">
+    <link rel="shortcut icon" type="image/png" href="portrait.png">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=VT323&family=Courier+Prime:wght@400;700&display=swap');
         
@@ -402,6 +404,7 @@
             transition: all 0.3s ease;
             opacity: 0;
             transform: scale(0.9);
+            cursor: pointer;
         }
 
         .skill-category.animate {
@@ -423,6 +426,7 @@
             border-color: #66acba;
             background: rgba(255, 0, 255, 0.1);
             transform: rotate(1deg) scale(1.02);
+            box-shadow: 0 4px 15px rgba(102, 172, 186, 0.3);
         }
 
         .skill-category h3 {
@@ -987,27 +991,27 @@
             <section id="skills" class="section">
                 <div class="section-title">&gt; Skills</div>
                 <div class="skills-grid">
-                    <div class="skill-category">
+                    <div class="skill-category" onclick="scrollToProjects()">
                         <h3>Languages</h3>
                         <div class="skill-list">Python, C++, SQL, R</div>
                     </div>
-                    <div class="skill-category">
+                    <div class="skill-category" onclick="scrollToProjects()">
                         <h3>Databases</h3>
                         <div class="skill-list">MySQL, MongoDB</div>
                     </div>
-                    <div class="skill-category">
+                    <div class="skill-category" onclick="scrollToProjects()">
                         <h3>Development</h3>
                         <div class="skill-list">REST APIs, MERN Stack, AI/ML</div>
                     </div>
-                    <div class="skill-category">
+                    <div class="skill-category" onclick="scrollToProjects()">
                         <h3>Cloud & DevOps</h3>
                         <div class="skill-list">AWS, Git, Docker</div>
                     </div>
-                    <div class="skill-category">
+                    <div class="skill-category" onclick="scrollToProjects()">
                         <h3>Frameworks</h3>
                         <div class="skill-list">React.js, Node.js, Express.js, Flask</div>
                     </div>
-                    <div class="skill-category">
+                    <div class="skill-category" onclick="scrollToProjects()">
                         <h3>Analytics</h3>
                         <div class="skill-list">Data Analysis, Statistical Modeling, Data Visualization</div>
                     </div>
@@ -1128,6 +1132,13 @@
                 matrixActive = false;
                 btn.style.background = 'linear-gradient(135deg, #f5f5f6, #beb8c4)';
             }
+        }
+
+        function scrollToProjects() {
+            document.getElementById('projects').scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
         }
     </script>
 </body>
