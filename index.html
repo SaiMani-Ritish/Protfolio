@@ -510,7 +510,7 @@
 
         .certifications {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 15px;
         }
 
@@ -529,12 +529,13 @@
         .cert-item {
             background: rgba(16, 185, 129, 0.1);
             border: 1px solid #10b981;
-            padding: 15px;
+            padding: 12px;
             border-radius: 8px;
             color: #6ee7b7;
             transition: all 0.3s ease;
             opacity: 0;
             transform: translateY(20px);
+            font-size: 0.85rem;
         }
 
         .cert-item.animate {
@@ -673,6 +674,10 @@
                 flex-direction: row;
                 flex-wrap: wrap;
                 justify-content: center;
+            }
+
+            .certifications {
+                grid-template-columns: 1fr;
             }
         }
         .about-text,
@@ -1044,7 +1049,11 @@
                     <a href="https://www.kaggle.com/learn/certification/saimaniritish/python" target="_blank">  
                         <div class="cert-item">Kaggle: Python</div>
                     </a>
-                    
+
+                    <a href="https://www.credly.com/badges/fbf39bd4-7fb5-4236-9f7c-3de1a22b4b4b/public_url" target="_blank">
+                        <div class="cert-item">Microsoft Certified: Azure AI Fundamentals</div>
+                    </a>
+
                     <a href="https://learn.microsoft.com/en-us/users/saimaniritish-7185/credentials/60bacbab3a41ed08" target="_blank">
                         <div class="cert-item">Microsoft Certified: Azure AI Engineer Associate</div>
                     </a>
